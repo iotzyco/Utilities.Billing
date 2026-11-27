@@ -1,4 +1,4 @@
-# Azure Pipelines for Utilities.Billing.Api using shared template
+# Azure Pipelines for Utilities.Billing.Api using the shared platform-deploy template
 
 trigger:
 - develop
@@ -7,14 +7,16 @@ trigger:
 resources:
   repositories:
   - repository: self
-  - repository: backend_configs
+  - repository: platform_deploy
     type: github
-    endpoint: github-umec-corp
-    name: UMEC-Corp/backend-configs
-    ref: develop
+    endpoint: iotzyco
+    name: iotzyco/platform-deploy
+    ref: main
 
 extends:
-  template: /build/azure-pipelines-template.yml@backend_configs
+  template: /pipelines/templates/backend-service.yml@platform_deploy
   parameters:
+    devNamespace: 'umec-dev'
+    prodNamespace: 'umec-production'
     serviceName: 'utilities-billing'
     dockerfile: 'Utilities.Billing.Api/Dockerfile'

@@ -4,8 +4,8 @@ namespace Utilities.Billing.Contracts
 {
     public class MakePaymentCommand
     {
-        public string InputCode { get; set; }
+        public string InputCode { get; set; } = null!;
         public double IncomingValue { get; set; }
-        public string DeviceSerial { get; set; }
+        public string DeviceSerial { get; set; } = null!;
     }
 }

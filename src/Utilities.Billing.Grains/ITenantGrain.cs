@@ -2,5 +2,5 @@
 public interface ITenantGrain : IGrainWithGuidKey
 {
     Task UpdateState(TenantGrainState tenantGrainState);
-    Task<TenantGrainState> GetState();
+    Task<TenantGrainState?> GetState();
 }

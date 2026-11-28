@@ -6,7 +6,7 @@ namespace Utilities.Billing.Data.Entities;
 public class Invoice : DbEntityWithLongKey
 {
     public Guid AccountId { get; set; }
-    public virtual Account Account { get; set; }
+    public virtual Account Account { get; set; } = null!;
     //public decimal AmountTotal { get; set; }
     //public decimal AmountPayed { get; set; }
     //public DateTime? Date { get; set; }
@@ -14,7 +14,7 @@ public class Invoice : DbEntityWithLongKey
 
     public decimal Amount { get; set; }
     public string? Xdr { get; set; }
-    public string PayerWallet { get; set; }
+    public string PayerWallet { get; set; } = null!;
 
     public InvoiceStatus Status { get; set; }
 

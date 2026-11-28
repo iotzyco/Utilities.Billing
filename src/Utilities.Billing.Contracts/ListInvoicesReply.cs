@@ -10,12 +10,12 @@ public class ListInvoicesReply
     public class InvoiceItem
     {
         [Id(0)]
-        public string TransactionId { get; set; }
+        public string TransactionId { get; set; } = null!;
         [Id(1)]
-        public string Amount { get; set; }
+        public string Amount { get; set; } = null!;
         [Id(2)]
         public bool Processed { get; set; }
         [Id(3)]
-        public string Xdr { get; set; }
+        public string? Xdr { get; set; }
     }
 }

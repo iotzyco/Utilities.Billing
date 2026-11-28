@@ -2,11 +2,11 @@
 
 public class CreateInvoiceXdrCommand
 {
-    public string PayerAccountId { get; set; }
-    public string DeviceAccountId { get; set; }
-    public string AssetCode { get; set; }
+    public string PayerAccountId { get; set; } = null!;
+    public string DeviceAccountId { get; set; } = null!;
+    public string AssetCode { get; set; } = null!;
     public decimal Amount { get; set; }
-    public string AssetsIssuerAccountId { get; set; }
-    public string TenantAccountId { get; set; }
+    public string AssetsIssuerAccountId { get; set; } = null!;
+    public string TenantAccountId { get; set; } = null!;
     public long InvoiceId { get; set; }
 }

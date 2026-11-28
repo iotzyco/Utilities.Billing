@@ -280,9 +280,17 @@ public class StellarWalletsClient : IPaymentSystem
     /// This method simply derives the account ID from the configured master account's secret seed and returns it.
     /// </para>
     /// </remarks>
-    public async Task<string> GetMasterAccountAsync()
+    public Task<string> GetMasterAccountAsync()
     {
-        return KeyPair.FromSecretSeed(_options.CurrentValue.SecretSeed).AccountId;
+        try
+        {
+            return Task.FromResult(KeyPair.FromSecretSeed(_options.CurrentValue.SecretSeed).AccountId);
+        }
+        catch (Exception ex)
+        {
+            // Keep the old async semantics: a bad seed faults the returned task instead of throwing synchronously.
+            return Task.FromException<string>(ex);
+        }
     }
 
     /// <summary>
@@ -318,7 +326,7 @@ public class StellarWalletsClient : IPaymentSystem
     private async Task SendTran(Server server, StellarDotnetSdk.Transactions.Transaction transaction)
     {
         var response = await server.SubmitTransaction(transaction);
-        if (!response.IsSuccess)
+        if (!response!.IsSuccess)
         {
             throw new StellarTransactionFailException($"Failed to execute transaction. See XDR for details: {response.ResultXdr}");
         }
@@ -361,7 +369,7 @@ public class StellarWalletsClient : IPaymentSystem
                     continue;
                 }
 
-                var memo = JsonSerializer.Deserialize<InvoiceMemo>(transaction.MemoValue);
+                var memo = JsonSerializer.Deserialize<InvoiceMemo>(transaction.MemoValue!);
                 if (memo == null || memo.InvoiceId == 0)
                 {
                     continue;

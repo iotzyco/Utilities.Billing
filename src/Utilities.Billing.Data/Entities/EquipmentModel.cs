@@ -10,9 +10,9 @@ namespace Utilities.Billing.Data.Entities
     public class EquipmentModel : DbEntityWithLongKey
     {
         public Guid AssetId { get; set; }
-        public virtual Asset Asset { get; set; }
+        public virtual Asset Asset { get; set; } = null!;
 
-        public string Code { get;  set; }
+        public string Code { get; set; } = null!;
 
     }
 }

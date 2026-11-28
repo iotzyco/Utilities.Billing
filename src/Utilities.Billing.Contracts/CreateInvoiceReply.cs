@@ -4,5 +4,5 @@
 public class CreateInvoiceReply
 {
     [Id(0)]
-    public string Xdr { get; set; }
+    public string Xdr { get; set; } = null!;
 }

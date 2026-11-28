@@ -2,7 +2,6 @@ syntax = "proto3";
 
 option csharp_namespace = "Utilities.Billing.Api.Protos";
 
-import "Protos/billing/v1/data.proto";
 import "google/api/annotations.proto";
 package stellar;
 

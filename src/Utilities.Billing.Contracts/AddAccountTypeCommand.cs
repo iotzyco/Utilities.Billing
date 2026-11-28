@@ -4,7 +4,7 @@
 public sealed class AddAccountTypeCommand
 {
     [Id(0)]
-    public string Name { get; set; }
+    public string Name { get; set; } = null!;
     [Id(1)]
-    public string Token { get; set; }
+    public string Token { get; set; } = null!;
 }

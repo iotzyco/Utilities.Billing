@@ -2,7 +2,7 @@
 
 public class AddStellarAssetCommand
 {
-    public string AssetCode { get; set; }
-    public string IssuerAccountId { get; set; }
-    public string ReceiverAccountId { get; set; }
+    public string AssetCode { get; set; } = null!;
+    public string IssuerAccountId { get; set; } = null!;
+    public string ReceiverAccountId { get; set; } = null!;
 }

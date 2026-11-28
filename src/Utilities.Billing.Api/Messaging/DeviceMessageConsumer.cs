@@ -47,7 +47,7 @@ public class DeviceMessageConsumer : IConsumer<Batch<DeviceEvent>>
 
                     await _accountsService.MakePaymentAsync(new MakePaymentCommand
                     {
-                        DeviceSerial = groupByDeviceSerial.Key,
+                        DeviceSerial = groupByDeviceSerial.Key!,
                         InputCode = code,
                         IncomingValue = value
                     });

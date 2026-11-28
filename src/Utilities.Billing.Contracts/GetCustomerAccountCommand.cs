@@ -2,6 +2,6 @@
 
 public class GetCustomerAccountCommand
 {
-    public string CustomerAccountId { get; set; }
-    public string TenantId { get; set; }
+    public string CustomerAccountId { get; set; } = null!;
+    public string TenantId { get; set; } = null!;
 }

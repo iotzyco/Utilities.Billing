@@ -318,7 +318,7 @@ public class StellarWalletsClient : IPaymentSystem
     private async Task SendTran(Server server, StellarDotnetSdk.Transactions.Transaction transaction)
     {
         var response = await server.SubmitTransaction(transaction);
-        if (!response.IsSuccess)
+        if (!response!.IsSuccess)
         {
             throw new StellarTransactionFailException($"Failed to execute transaction. See XDR for details: {response.ResultXdr}");
         }
@@ -361,7 +361,7 @@ public class StellarWalletsClient : IPaymentSystem
                     continue;
                 }
 
-                var memo = JsonSerializer.Deserialize<InvoiceMemo>(transaction.MemoValue);
+                var memo = JsonSerializer.Deserialize<InvoiceMemo>(transaction.MemoValue!);
                 if (memo == null || memo.InvoiceId == 0)
                 {
                     continue;

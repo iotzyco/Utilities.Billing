@@ -9,7 +9,7 @@ public partial class TenantGrain : Grain, ITenantGrain
 {
     private readonly BillingDbContext _dbContext;
     private readonly IPaymentSystem _paymentSystem;
-    private TenantGrainState _tenantState;
+    private TenantGrainState? _tenantState;
 
     public TenantGrain(BillingDbContext dbContext)
     {
@@ -26,7 +26,7 @@ public partial class TenantGrain : Grain, ITenantGrain
         return Task.CompletedTask;
     }
 
-    public Task<TenantGrainState> GetState()
+    public Task<TenantGrainState?> GetState()
     {
         return Task.FromResult(_tenantState);
     }

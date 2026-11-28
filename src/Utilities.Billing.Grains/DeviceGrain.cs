@@ -9,7 +9,7 @@ namespace Utilities.Billing.Grains
     public class DeviceGrain : Grain, IDeviceGrain
     {
         private readonly BillingDbContext _dbContext;
-        private Dictionary<string, InputInfo> _inputStates;
+        private Dictionary<string, InputInfo> _inputStates = null!;
 
         public DeviceGrain(BillingDbContext dbContext, IPaymentSystem paymentSystem, ILogger<DeviceGrain> logger)
         {

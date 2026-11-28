@@ -8,9 +8,9 @@ namespace Utilities.Billing.Contracts
         [Id(0)]
         public Guid Id { get; set; }
         [Id(1)]
-        public string Code { get; set; }
+        public string Code { get; set; } = null!;
         [Id(2)]
-        public string Issuer { get; set; }
+        public string Issuer { get; set; } = null!;
     }
 
 }

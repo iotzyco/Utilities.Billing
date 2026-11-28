@@ -9,7 +9,7 @@ namespace Utilities.Billing.Data.Entities;
 public class ExchangeRate : DbEntityWithLongKey
 {
     public long AccountTypeId { get; set; }
-    public virtual AccountType AccountType { get; set; }
+    public virtual AccountType AccountType { get; set; } = null!;
     public DateTime Effective { get; set; }
     public DateTime? Expires { get; set; }
     public decimal SellPrice { get; set; }

@@ -2,8 +2,8 @@
 {
     public class UpdateTenantCommand
     {
-        public string Name { get; set; }
-        public string Account { get; set; }
-        public string TenantId { get; set; }
+        public string Name { get; set; } = null!;
+        public string Account { get; set; } = null!;
+        public string TenantId { get; set; } = null!;
     }
 }

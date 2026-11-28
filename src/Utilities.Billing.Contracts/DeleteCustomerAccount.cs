@@ -4,10 +4,10 @@
     public class DeleteCustomerAccount
     {
         [Id(0)]
-        public string CustomerAccountId { get; set; }
+        public string CustomerAccountId { get; set; } = null!;
         [Id(1)]
-        public string AssetCode { get; set; }
+        public string AssetCode { get; set; } = null!;
         [Id(2)]
-        public string AssetIssuerAccountId { get; set; }
+        public string AssetIssuerAccountId { get; set; } = null!;
     }
 }

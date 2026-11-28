@@ -405,7 +405,7 @@ public class TenantService : ITenantService
                 Amount = amount,
                 AssetCode = customerAccount.AssetCode,
                 AssetsIssuerAccountId = customerAccount.AssetIssuer,
-                TenantAccountId = tenantState.Wallet,
+                TenantAccountId = tenantState!.Wallet,
                 DeviceAccountId = customerAccount.Wallet,
                 PayerAccountId = command.PayerAccount
             });

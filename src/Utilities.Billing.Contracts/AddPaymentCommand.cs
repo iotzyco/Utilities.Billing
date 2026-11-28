@@ -2,8 +2,8 @@
 
 public class AddPaymentCommand
 {
-    public string RecieverAccountId { get; set; }
-    public string AssetCode { get; set; }
-    public string AssetIssuerAccountId { get; set; }
+    public string RecieverAccountId { get; set; } = null!;
+    public string AssetCode { get; set; } = null!;
+    public string AssetIssuerAccountId { get; set; } = null!;
     public decimal Amount { get; set; }
 }

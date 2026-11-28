@@ -39,9 +39,10 @@ public class MigrationTests
     }
 
     [Test]
-    public async Task DbContextMigratorShouldMigrateEmptyDb()
+    public Task DbContextMigratorShouldMigrateEmptyDb()
     {
         Assert.Inconclusive("This test should be moved to the Common repo");
+        return Task.CompletedTask;
         //var serviceCollection = new ServiceCollection();
 
         //serviceCollection.AddDbContext<BillingDbContext>(o =>

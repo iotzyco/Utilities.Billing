@@ -282,7 +282,15 @@ public class StellarWalletsClient : IPaymentSystem
     /// </remarks>
     public Task<string> GetMasterAccountAsync()
     {
-        return Task.FromResult(KeyPair.FromSecretSeed(_options.CurrentValue.SecretSeed).AccountId);
+        try
+        {
+            return Task.FromResult(KeyPair.FromSecretSeed(_options.CurrentValue.SecretSeed).AccountId);
+        }
+        catch (Exception ex)
+        {
+            // Keep the old async semantics: a bad seed faults the returned task instead of throwing synchronously.
+            return Task.FromException<string>(ex);
+        }
     }
 
     /// <summary>

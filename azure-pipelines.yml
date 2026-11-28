@@ -22,3 +22,4 @@ extends:
     prodNamespace: 'umec-production'
     serviceName: 'utilities-billing'
     dockerfile: 'Utilities.Billing.Api/Dockerfile'
+    imageLayerCache: true

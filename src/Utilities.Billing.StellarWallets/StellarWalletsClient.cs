@@ -280,9 +280,9 @@ public class StellarWalletsClient : IPaymentSystem
     /// This method simply derives the account ID from the configured master account's secret seed and returns it.
     /// </para>
     /// </remarks>
-    public async Task<string> GetMasterAccountAsync()
+    public Task<string> GetMasterAccountAsync()
     {
-        return KeyPair.FromSecretSeed(_options.CurrentValue.SecretSeed).AccountId;
+        return Task.FromResult(KeyPair.FromSecretSeed(_options.CurrentValue.SecretSeed).AccountId);
     }
 
     /// <summary>

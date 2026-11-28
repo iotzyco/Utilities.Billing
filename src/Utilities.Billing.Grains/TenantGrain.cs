@@ -8,7 +8,6 @@ namespace Utilities.Billing.Grains;
 public partial class TenantGrain : Grain, ITenantGrain
 {
     private readonly BillingDbContext _dbContext;
-    private readonly IPaymentSystem _paymentSystem;
     private TenantGrainState? _tenantState;
 
     public TenantGrain(BillingDbContext dbContext)

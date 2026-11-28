@@ -29,7 +29,7 @@ public static class Extensions
              { "ConnectionStrings__BillingDbContext", postgresConnectionString },
         };
 
-        var imageRegistry = Environment.GetEnvironmentVariable("TEST_CONTAINERS_IMAGE_REGISTRY") ?? "registry.digitalocean.com/deviot";
+        var imageRegistry = Environment.GetEnvironmentVariable("TEST_CONTAINERS_IMAGE_REGISTRY") ?? "registry.deviot.cloud/umec";
         var imageTag = Environment.GetEnvironmentVariable("TEST_CONTAINERS_IMAGE_TAG") ?? "develop-latest";
         var imageName = $"{imageRegistry}/utilities-billing:{imageTag}";
 
@@ -60,6 +60,9 @@ public static class Extensions
             {
                 // Container was never created (e.g. image pull failed) — logs unavailable
             }
+
+            // Remove the failed container so its fixed name does not block the next fixture.
+            await container.DisposeAsync();
 
             throw new Exception(
                 $"Container 'billing' failed to start: {ex.Message}{logDetails}", ex);
